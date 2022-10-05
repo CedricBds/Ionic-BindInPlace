@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Palanquin+Dark:wght@500&display=swap');
+
+
+
+.appTitleMenu{
+    font-family: 'Palanquin Dark', sans-serif;
+font-size: 1.3rem;
+}
+
+.ion-content{
+    background-color: aqua;
+}
+
+.cardNewProject{
+    --background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+    --color: white;
+}
+
+.cardProjectList{
+    --background: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+    --color:white;
+}
+
+ion-card-title, ion-card-content{
+    --color: white;
+    font-family: 'Noto Sans', sans-serif;
+
+}

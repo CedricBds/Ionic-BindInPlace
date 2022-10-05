@@ -1,17 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+<ion-content>
+  <ion-header collapse="fade">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title>BindInPlace ✨</ion-title>
     </ion-toolbar>
   </ion-header>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">BindInPlace ✨</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+      <ion-nav-link router-direction="forward" routerLink="/create-project">
+        <ion-card class="cardNewProject">
+        <ion-card-header>
+          <ion-card-title>➕ Nouveau Projet</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+      Regroupez les besoins du client à travers la checklist, et soyez prêt pour votre premier point.
+        </ion-card-content>
+      </ion-card>
+
+      </ion-nav-link>
+            <ion-card class="cardProjectList">
+              <ion-card-header>
+                <ion-card-subtitle></ion-card-subtitle>
+                <ion-card-title>📄Liste des projets 👀</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+              Consultez la liste de vos projets
+              </ion-card-content>
+    
+            </ion-card>    
+  </ion-content>
+  
