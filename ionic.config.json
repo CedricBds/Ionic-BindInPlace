@@ -1,0 +1,7 @@
+{
+  "name": "Mobidev",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
