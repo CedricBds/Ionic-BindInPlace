@@ -10,19 +10,89 @@
       </ion-toolbar>
       <ion-breadcrumbs>
         <ion-breadcrumb routerLink="/tabs/tab1">Home</ion-breadcrumb>
-        <ion-breadcrumb routerLink="/create-project">Create Project</ion-breadcrumb>
+        <ion-breadcrumb routerLink="/create-project" >Create Project</ion-breadcrumb>
       </ion-breadcrumbs>
     </ion-header>
 
-
-    <ion-card>
+    <ion-card class="clientInfo" *ngIf="step === 1">
       <ion-card-header>
-        <ion-card-title>Le Client</ion-card-title>
+        <ion-card-title>Création</ion-card-title>
       </ion-card-header>
     
-      <ion-item>
-        <ion-label position="stacked">Stacked Label</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+      <ion-buttons class="ion-padding">
+        <ion-button fill="solid" size="large" color="dark" (click)="step = 2">Nouveau Client<ion-icon name="arrow-forward"></ion-icon></ion-button>
+        <ion-button color="dark" fill="outline">Client Existant<ion-icon name="arrow-forward"></ion-icon></ion-button>
+      </ion-buttons>
+
     </ion-card>
+
+    <ion-card class="clientInfo" *ngIf="step === 2">
+      <ion-card-header>
+        <ion-card-title>Fiche du client</ion-card-title>
+      </ion-card-header>
+    <ion-list class="ion-padding">
+
+      <ion-item>
+        <ion-label position="stacked">Prénom</ion-label>
+        <ion-input [(ngModel)]="newclient.firstName" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Nom</ion-label>
+        <ion-input [(ngModel)]="newclient.lastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Numéro de téléphone</ion-label>
+        <ion-input [(ngModel)]="newclient.phoneNumber"></ion-input>
+      </ion-item>
+
+        <ion-button color="dark" expand="block"  (click)="saveClient(); step = 3;">Continuer<ion-icon name="arrow-forward"></ion-icon></ion-button>
+
+    </ion-list>
+
+    </ion-card>
+
+    <ion-card class="clientProject" *ngIf="step === 3">
+      <ion-card-header>
+        <ion-card-title>Définir le projet de {{newclient.firstName}}</ion-card-title>
+      </ion-card-header>
+    <ion-list class="ion-padding">
+
+      <ion-item>
+        <ion-label position="stacked">Nom du projet</ion-label>
+        <ion-input [(ngModel)]="newProject.projectName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fonctionnalités souhaités</ion-label>
+        <ion-textarea [(ngModel)]="newProject.projectDetails"></ion-textarea>
+      </ion-item>
+      <ion-card-title class="ion-margin-top">Les couleurs</ion-card-title>
+
+      <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Couleur primaire</ion-label>
+            <input class="colorInput" [(ngModel)]="newProject.projectColors.primary" type="color">
+          </ion-col>
+
+          <ion-col>     
+            <ion-label position="stacked">Couleur Secondaire</ion-label>
+            <input class="colorInput" [(ngModel)]="newProject.projectColors.secondary" type="color">
+            </ion-col>
+
+            <ion-col>
+            <ion-label position="stacked">Couleur Tertiaire</ion-label>
+            <input class="colorInput" [(ngModel)]="newProject.projectColors.tertiary" type="color">
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+        <ion-button color="dark" expand="block" routerLink="/" (click)="saveProject()">Terminer</ion-button>
+
+    </ion-list>
+
+    </ion-card>
+    
     </ion-content>

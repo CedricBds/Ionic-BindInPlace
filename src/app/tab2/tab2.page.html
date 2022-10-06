@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Tab 2
@@ -9,9 +9,40 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title class="ion-text-start" size="large">BindInPlace ✨</ion-title>
     </ion-toolbar>
+    <ion-breadcrumbs>
+      <ion-breadcrumb routerLink="/tabs/tab1">Home</ion-breadcrumb>
+      <ion-breadcrumb routerLink="/tabs/tab2" >Listing</ion-breadcrumb>
+    </ion-breadcrumbs>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-accordion-group *ngFor="let clientFolder of clientFolders;" class="ion-margin-top">
+    <ion-accordion value="first">
+      <ion-item class="itembg" slot="header">
+        <ion-label>{{clientFolder.firstName}} {{clientFolder.lastName}}</ion-label>
+      </ion-item>
+      <div slot="content" *ngFor="let projectFolder of clientFolder.project;">
+        <ion-card class="cardProjectList">
+          <ion-card-header>
+            <ion-card-subtitle></ion-card-subtitle>
+            <ion-card-title>📄{{projectFolder.projectName}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{projectFolder.projectDetails}}        
+            </ion-card-content>
+            <ion-buttons>
+              <ion-button style="--background: {{projectFolder.projectColors.primary}};">{{projectFolder.projectColors.primary}}</ion-button>
+              <ion-button style="--background: {{projectFolder.projectColors.secondary}};">{{projectFolder.projectColors.secondary}}</ion-button>
+              <ion-button style="--background: {{projectFolder.projectColors.tertiary}};">{{projectFolder.projectColors.tertiary}}</ion-button>
+            </ion-buttons>
+        </ion-card>  
+        <ion-button expand="block">EXPORTER</ion-button>
+      </div>
+    </ion-accordion>
+    </ion-accordion-group>
+
+  
+
 </ion-content>

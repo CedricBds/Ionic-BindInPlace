@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Palanquin+Dark:wght@500&display=swap');
+
+
+
+
+.itembg{
+    --ion-item-background: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    font-size: 1.7rem;
+    --ion-item-color: white;
+}
+
+.itembg ion-label{
+    font-family: 'Noto Sans', sans-serif;
+font-weight: bold;
+}
