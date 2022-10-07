@@ -16,18 +16,13 @@ BindInPlace permet de mettre en lien les prospects ainsi que les développeurs p
 
 ### Installation
 
-Executez la commande ``git clone`` pour commencer ensuite [...]
-
+Executez la commande ``git clone`` pour commencer
 
 Ensuite vous pouvez montrer ce que vous obtenez au final...
 
-## Démarrage
-
-Dites comment faire pour lancer votre projet
 
 ## Fabriqué avec
 
-_exemples :_
 * [ANGULAR](http://angular.io) - Framework JS
 * [Ionic](https://ionicframework.com/) 
 
