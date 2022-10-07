@@ -38,7 +38,9 @@
               <ion-button style="--background: {{projectFolder.projectColors.tertiary}};">{{projectFolder.projectColors.tertiary}}</ion-button>
             </ion-buttons>
         </ion-card>  
-        <ion-button expand="block">EXPORTER</ion-button>
+        <ion-button expand="block" (click)="shareProject(clientFolder, projectFolder)">PARTAGER</ion-button>
+        <ion-button expand="block" (click)="exportProject(clientFolder, projectFolder)">EXPORTER</ion-button>
+
       </div>
     </ion-accordion>
     </ion-accordion-group>

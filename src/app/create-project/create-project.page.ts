@@ -60,8 +60,6 @@ export class CreateProjectPage implements OnInit {
     await toast.present();
   }
 
-  async handleSave(){
-      this.step = 1;
-  }
 
+  
 }

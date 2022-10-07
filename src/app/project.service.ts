@@ -35,7 +35,6 @@ export class ProjectService {
  */
   async addProject(project: Project){
     this.projects.push(project)
-    console.log(this.projects)
     return true;
   }
 

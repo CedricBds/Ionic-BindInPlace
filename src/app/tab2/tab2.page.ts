@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Share } from '@capacitor/share';
 import { Client, ClientService } from '../client.service';
 import { Project, ProjectService } from '../project.service';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 @Component({
   selector: 'app-tab2',
@@ -37,7 +39,24 @@ export class Tab2Page {
           
     }
 
-    console.log(folders)
 
+  }
+
+  async shareProject(client: Client, project: Project){
+    await Share.share({
+      title: 'Client:' + `${client.firstName} ${client.lastName}`,
+      text: 'Nom du projet:\n' + project.projectName + '\nDescription:\n' + project.projectDetails,
+    });
+  }
+
+
+  async exportProject(client: Client, project: Project){
+
+      await Filesystem.writeFile({
+        path: 'secrets/text.txt',
+        data: 'Client:' + `${client.firstName} ${client.lastName}\n` + 'Nom du projet:\n' + project.projectName + '\nDescription:\n' + project.projectDetails,
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8,
+      });
   }
 }

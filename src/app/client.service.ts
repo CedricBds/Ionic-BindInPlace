@@ -14,7 +14,6 @@ export class ClientService {
     client.project.forEach((p) => p.folderId = client.folderId)
     this.clientList.push(client);
     client = undefined;
-    console.log(this.clientList)
   }
 
   public getAll() {
@@ -23,6 +22,7 @@ export class ClientService {
 
     }
   }
+
 }
 
 
@@ -33,3 +33,4 @@ export interface Client{
   phoneNumber: string;
   project: Project[];
 }
+
