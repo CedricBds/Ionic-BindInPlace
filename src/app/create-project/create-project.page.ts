@@ -21,7 +21,12 @@ export class CreateProjectPage implements OnInit {
 
   
    
-
+/**
+ * 
+ * @param clientService contient le dossier client ainsi que les fonctions associés
+ * @param projectService contient le dossier projet ainsi que les fonctions associés
+ * @param toastController alertes
+ */
   constructor(
     public clientService: ClientService,
     private projectService: ProjectService,
@@ -36,20 +41,27 @@ export class CreateProjectPage implements OnInit {
     this.step = 1;
   }
 
-  
+  /**
+   * Permet de sauvegarder un nouveau client dans le clientservice
+   */
   async saveClient(){
     this.newclient.project.push(this.newProject)
    await this.clientService.addClient(this.newclient).then(async () => {
     this.presentToast('Client Sauvegardé ☀️');
    })
   }
-
+/**
+ * Permet de sauvegarder un nouveau projet dans le projectservice
+ */
   async saveProject(){
     await this.projectService.addProject(this.newProject).then(async () =>{
       this.presentToast('Projet Sauvegardé')
     })
   }
-
+/**
+ * permet de générer une nouvelle alerte
+ * @param message de l'alerte
+ */
   async presentToast(message: string) {
     const toast = await toastController.create({
       message: message,
@@ -61,5 +73,5 @@ export class CreateProjectPage implements OnInit {
   }
 
 
-  
+
 }

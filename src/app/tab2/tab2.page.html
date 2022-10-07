@@ -1,3 +1,4 @@
+<!--PAGE LISTE DES PROJETS-->
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -15,7 +16,7 @@
       <ion-breadcrumb routerLink="/tabs/tab2" >Listing</ion-breadcrumb>
     </ion-breadcrumbs>
   </ion-header>
-
+<div *ngIf="clientFolders.length">
   <ion-accordion-group *ngFor="let clientFolder of clientFolders;" class="ion-margin-top">
     <ion-accordion value="first">
       <ion-item class="itembg" slot="header">
@@ -38,12 +39,22 @@
             </ion-buttons>
         </ion-card>  
         <ion-button expand="block" (click)="shareProject(clientFolder, projectFolder)">PARTAGER</ion-button>
-        <ion-button expand="block" (click)="exportProject(clientFolder, projectFolder)">EXPORTER</ion-button>
+        <!--<ion-button expand="block" (click)="exportProject(clientFolder, projectFolder)">EXPORTER</ion-button>-->
 
       </div>
     </ion-accordion>
     </ion-accordion-group>
+</div>
 
+<div *ngIf="!clientFolders.length">
+  <ion-card class="cardProjectList">
+    <ion-card-header>
+      <ion-card-title>Pas encore de projet !</ion-card-title>
+      <ion-button routerLink="/create-project" expand="block">Créer</ion-button>
+    </ion-card-header>
+
+  </ion-card>
+  </div>
   
 
 </ion-content>

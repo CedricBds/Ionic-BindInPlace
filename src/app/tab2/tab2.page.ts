@@ -42,6 +42,7 @@ export class Tab2Page {
 
   }
 
+  /*Permet de partager un projet sur les reseaux*/
   async shareProject(client: Client, project: Project){
     await Share.share({
       title: 'Client:' + `${client.firstName} ${client.lastName}`,
@@ -49,7 +50,7 @@ export class Tab2Page {
     });
   }
 
-
+/*Permet d'exporter un projet dans les fichiers de l'appareil, non fonctionnel */
   async exportProject(client: Client, project: Project){
 
       await Filesystem.writeFile({
